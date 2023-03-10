@@ -7,6 +7,30 @@
 # (*) Усложнение. Решите для числа произвольной разрядности: произвольное количество цифр в числе.
 # (**) Усложнение. Для числа произвольной разрядности добавить в вывод строку с числами, например так:
 # 13579 >>> Сумма чисел числа 13579 равна 25(1 + 3 + 5 + 7 + 9)
-# Совет: Для этого используйте конкатенацию строк и срезы 
+# Совет: Для этого используйте конкатенацию строк и срезы
+
+import os
+os.system('cls')
+
+num = (input("Type three-digit number, press 'Enter' => "))
+num1 = int(num)
+sum = 0
+while num1 > 0:
+    sum += num1 % 10
+    num1//=10
+print(f' Sum of digits in your number {num} equals {sum} ({" + ".join(num)})')
 
 
+
+
+
+# Альтернативное решение:
+# number_str = input("Введите трёхзначное число > ")
+# if not (len(number_str) == 3 and number_str.isdigit()):
+#     print("Вы ввели что-то не то, перезапустите программу и попробуйте ещё раз")
+#     exit(1)
+# result = 0
+
+# for digit in number_str:
+#     result += int(digit)
+# print(result)
