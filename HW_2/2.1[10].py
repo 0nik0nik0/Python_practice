@@ -9,3 +9,20 @@
 #     ...
 #     1 0 1 1 0
 #     Кол-во монет, чтобы перевернуть: 2
+
+
+import random
+coins_amount = int (input ("Enter amout of coins>? "))
+coins_sides = [random.randint(0, 1) for i in range(coins_amount)]
+print (f' Current position of {coins_amount} coins : 0 или 1>?: {coins_sides} ')
+
+eagle = 0
+tails = 0
+for coin in coins_sides:
+    if coin:
+       eagle += 1
+    else:
+        tails += 1
+print (f'Minimal amount of coins which you need to turnover: {eagle if eagle <= tails else tails}')
+    
+
