@@ -8,7 +8,7 @@
 # 60 >>> 10  40  10
 
 import os
-os.system('cls')
+os.system('cls' if os.name == 'nt' else 'clear')
 
 sum = int(input(" Paper cranes crafted in total  = "))
 peter = sergio = 1
