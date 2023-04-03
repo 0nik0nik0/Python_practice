@@ -29,37 +29,34 @@
 # 	    <function_name>("Пам-парам-пурум Пум-пурум-карам") -> (True, [{'а': 3, 'у': 2}, {'у': 3, 'а': 2}])
 
 
-def count_vowels(poem):
+def count_vowels(poem, cheaker = True):
     list_vowels = []
+    vowels = []
     for word in poem.split():
         sum_vowels = 0
+        vowels_dict = {}
         for i in word:
             if i in 'ауоыиэяюёе':
                 sum_vowels += 1
-        sum_vowels = list_vowels.append(sum_vowels)
-    return len(list_vowels) == list_vowels.count(list_vowels[0])
+                if i in vowels_dict: 
+                    vowels_dict[i] += 1
+                else:
+                    vowels_dict[i] = 1
+        vowels.append(vowels_dict)
+        list_vowels.append(sum_vowels)
+        if list_vowels[0] != list_vowels[-1]: return False, vowels if cheaker else False
+    return (len(list_vowels) == list_vowels.count(list_vowels[0]), vowels) if cheaker else len(list_vowels) == list_vowels.count(list_vowels[0]) 
+        
 
-poem = 'пара-ра-рам рам-пум-пупам па-ре-по-дам'
-print (count_vowels(poem))
-poem = 'пара-ра-рам рам-пам-папам па-ра-па-дам'
-print (count_vowels(poem))
-poem = 'пара-ра-рам рам-пум-пупам па-ре-по-дам'
-print (count_vowels(poem))
-poem = 'пара-ра-рам рам-пуум-пупам па-ре-по-дам'
-print (count_vowels(poem))
-poem = 'Трам-пара-папам-парам-па-пам-пам-па Пум-пурум-пу-пурум-трам-пам-па'
-print (count_vowels(poem))
-poem = 'Пам-парам-пурум Пум-пурум-карам'
-print (count_vowels(poem))
-
-
-
-
-
-
-# #vowels = [а, у, о, ы, и, э, я, ю, ё, е]
-# poem = 'пара-ра-рам рам-пум-пупам па-ре-по-дам'
-# phrase = poem.replace(" ","-").split('-')
-# print (phrase)
-# # word = phrase.split('-')
-# # print (word)
+poem = ("пара-ра-рам рам-пам-папам па-ра-па-дам", False)
+print (f'{poem} -> {count_vowels(*poem)}')
+poem = ("пара-ра-рам рам-пам-папам па-ра-па-дам", True)
+print (f'{poem} -> {count_vowels(*poem)}')
+poem = ("пара-ра-рам рам-пум-пупам па-ре-по-дам")
+print (f'("{poem}") -> {count_vowels(poem)}')
+poem = ("пара-ра-рам рам-пуум-пупам па-ре-по-дам")
+print (f'("{poem}") -> {count_vowels(poem)}')
+poem = ("Трам-пара-папам-парам-па-пам-пам-па Пум-пурум-пу-пурум-трам-пам-па")
+print (f'("{poem}") -> {count_vowels(poem)}')
+poem = ("Пам-парам-пурум Пум-пурум-карам")
+print (f'("{poem}") -> {count_vowels(poem)}')
