@@ -26,7 +26,23 @@ print(min_num)
 
 
 
+""" numbers = [10, 5, 7, 3, 3, 2, 5, 7, 3, 8]
+numbers.sort()
 
+input_number = 6
+
+while len(numbers) > 2:
+    if input_number < numbers[len(numbers)//2]:
+        numbers = numbers[:len(numbers)//2]
+    else:
+        numbers = numbers[len(numbers) // 2:]
+
+print(numbers)
+
+if abs(input_number - numbers[0]) < abs(input_number - numbers[1]):
+    print(numbers[0])
+else:
+    print(numbers[1]) """
 
 
 
